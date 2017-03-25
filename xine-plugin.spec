@@ -1,13 +1,13 @@
 Name:           xine-plugin
 Version:        1.0.2
-Release:        11%{?dist}
+Release:        12%{?dist}
 Summary:        Mozilla/Netscape compatible media plugin
 
 Group:          Applications/Multimedia
 License:        GPLv2+
 URL:            http://xinehq.de/
 Source0:        http://prdownloads.sourceforge.net/xine/xine-plugin-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Patch0:         xine-plugin-1.0.2-Sync_prcpucfg_h_with_nspr.patch
 
 BuildRequires:  xine-lib-devel
 BuildRequires:  pkgconfig
@@ -35,29 +35,29 @@ Features:
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure --with-plugindir=%{_libdir}/mozilla/plugins
-make %{?_smp_mflags}
+%make_build
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 rm -rf $RPM_BUILD_ROOT/%{_libdir}/mozilla/plugins/*.la
 
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-
 %files
-%defattr(-,root,root,-)
-%doc AUTHORS COPYING README
+%license COPYING
+%doc AUTHORS README
 %{_libdir}/mozilla/plugins/*
 
 
 %changelog
+* Sat Mar 25 2017 Xavier Bachelot <xavier@bachelot.org> - 1.0.2-12
+- Sync prcpucfg.h with nspr to fix build on aarch64.
+- Cleanup specfile.
+
 * Tue Mar 21 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1.0.2-11
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
