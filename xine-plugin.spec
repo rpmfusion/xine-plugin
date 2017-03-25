@@ -7,6 +7,8 @@ Group:          Applications/Multimedia
 License:        GPLv2+
 URL:            http://xinehq.de/
 Source0:        http://prdownloads.sourceforge.net/xine/xine-plugin-%{version}.tar.bz2
+
+# https://bugs.xine-project.org/show_bug.cgi?id=581
 Patch0:         xine-plugin-1.0.2-Sync_prcpucfg_h_with_nspr.patch
 
 BuildRequires:  xine-lib-devel
