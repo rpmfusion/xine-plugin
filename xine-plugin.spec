@@ -1,6 +1,6 @@
 Name:           xine-plugin
 Version:        1.0.2
-Release:        16%{?dist}
+Release:        17%{?dist}
 Summary:        Mozilla/Netscape compatible media plugin
 
 License:        GPLv2+
@@ -57,6 +57,9 @@ rm -rf $RPM_BUILD_ROOT/%{_libdir}/mozilla/plugins/*.la
 
 
 %changelog
+* Sun Aug 19 2018 Leigh Scott <leigh123linux@googlemail.com> - 1.0.2-17
+- Rebuilt for Fedora 29 Mass Rebuild binutils issue
+
 * Fri Jul 27 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1.0.2-16
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
