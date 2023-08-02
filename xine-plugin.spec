@@ -1,6 +1,6 @@
 Name:           xine-plugin
 Version:        1.0.2
-Release:        25%{?dist}
+Release:        26%{?dist}
 Summary:        Mozilla/Netscape compatible media plugin
 
 License:        GPLv2+
@@ -57,6 +57,9 @@ rm -rf $RPM_BUILD_ROOT/%{_libdir}/mozilla/plugins/*.la
 
 
 %changelog
+* Wed Aug 02 2023 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.0.2-26
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_39_Mass_Rebuild
+
 * Mon Aug 08 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 1.0.2-25
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild and ffmpeg
   5.1
